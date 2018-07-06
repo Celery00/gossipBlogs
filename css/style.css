@@ -1,0 +1,9 @@
+/* 首页 */
+.header{
+	padding:15px;
+	font-size: 16px;
+}
+.header .logo{
+	height: 65px;
+	margin-right:20px; 
+}
