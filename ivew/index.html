@@ -9,15 +9,16 @@
 	<link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
-	<div class="header layui-row layui-nav layui-bg-blue">
-		<div class="layui-col-md4">
+	<div class="layui-header header layui-bg-blue">
+		<div class="layui-col-md3">
 			<img src="../img/logo.png" alt="" class="logo">
 			<img src="../img/logo-text.png" alt="" class="logo-text">
 		</div>
-		<div class="layui-col-md4">
-			<input type="text">
-		</div>
-		<ul class="layui-col-md4">
+		<form action="" class="layui-col-md4 search-input" style="position:relative">
+			<input type="text" class="search">
+			<i class="layui-icon layui-icon-search search-icon"></i>
+		</form>
+		<ul class="layui-nav layui-bg-blue nav"  align="right">
 		  	<li class="layui-nav-item layui-this">
 		  		<a href="index.html">首页</a>
 		  	</li>
@@ -28,19 +29,51 @@
 		    	<a href="javascript:;">关于</a>
 		  	</li>
 		  	<li class="layui-nav-item">
-		  		<a href="javascript:;">个人</a>
+		  		<a href="javascript:;">
+		  			<i class="layui-icon layui-icon-username"></i>
+		  		</a>
 		  	</li>
 		</ul>
+		<div class="nav-hide">
+			<div class="more">
+				<i class="layui-icon layui-icon-more"></i>
+			</div>
+			<ul class="layui-nav layui-bg-blue">
+				<li class="layui-nav-item layui-this">
+			  		<a href="index.html">首页</a>
+			  	</li>
+			  	<li class="layui-nav-item">
+			  		<a href="javascript:;">留言</a>
+			  	</li>
+			  	<li class="layui-nav-item">
+			    	<a href="javascript:;">关于</a>
+			  	</li>
+			  	<li class="layui-nav-item">
+			  		<a href="javascript:;">
+			  			个人
+			  		</a>
+			  	</li>
+			</ul>
+		</div>
+		
 	</div>
-	
-	 
+
+    <script src="https://cdn.bootcss.com/jquery/3.3.0/jquery.min.js"></script>
 	<script src="../layui/layui.js"></script>
 	<script>
-		//注意：导航 依赖 element 模块，否则无法进行功能性操作
-		layui.use('element', function(){
-		  var element = layui.element;
+		$(function(){
+			//注意：导航 依赖 element 模块，否则无法进行功能性操作
+			layui.use('element', function(){
+			  var element = layui.element;
 
-		});
+			});
+
+			$(document).on('click','.nav-hide .more',function(){
+				$('.nav-hide ul').fadeToggle(300);
+			})
+		})
+		
+
 	</script>
 </body>
 </html>
