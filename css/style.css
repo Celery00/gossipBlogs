@@ -1,7 +1,118 @@
+/* 清除默认样式 */
+* {
+  margin: 0;
+  padding: 0;
+  outline: none;
+}
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+hr,
+p,
+blockquote,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+pre,
+form,
+fieldset,
+legend,
+button,
+th,
+td,
+img,
+div {
+  -webkit-touch-callout: inherit;
+  -webkit-user-select: auto;
+}
+a,
+input,
+button,
+div,
+textarea {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-tap-highlight-color: transparent;
+}
+html {
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+body {
+  width: 100%;
+  font-family: "Segoe UI", "Lucida Grande", Helvetica, Arial, "Microsoft YaHei", FreeSans, Arimo, "Droid Sans", "Hiragino Sans GB", "Hiragino Sans GB W3", Simsun, sans-serif;
+  font-size: 14px;
+  color: #333;
+  -webkit-touch-callout: inherit;
+  -webkit-user-select: auto;
+  background-color: #f2f2f2;
+}
+a {
+  color: #333;
+  text-decoration: none;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-touch-callout: none;
+}
+a:hover,
+a:active {
+  text-decoration: none;
+  outline: 0;
+}
+button,
+input:not[type="checkbox"],
+select,
+textarea {
+  margin: 0;
+  padding: 0;
+  font: inherit;
+  color: inherit;
+  outline: none;
+  -webkit-appearance: none;
+  text-transform: none;
+}
+img {
+  vertical-align: top;
+  -webkit-touch-callout: none;
+}
+textarea {
+  resize: none;
+}
+ul,
+ol,
+li {
+  list-style: none;
+}
+em {
+  font-style: normal;
+}
+button {
+  border-image: none;
+  border: 0;
+}
+input::-webkit-input-placeholder {
+  color: #ccc;
+}
 
 .flex{
-	display:flex;
-	display:-webkit-flex;
+	display: -webkit-box;
+  	display: -webkit-flex;
+  	display: -moz-box;
+  	display: -moz-flex;
+ 	display: -ms-flexbox;
+ 	display: flex;
 }
 /* 首页 */
 .header{
@@ -30,11 +141,12 @@
 	border: 1px solid rgba(255,255,255,.2);
 	background: transparent;
 	color: #fff;
+	padding-left: 45px;
 }
 .header .search-icon{
 	position: absolute;
 	top: 16px;
-	left: 20px;
+	left: 15px;
 	line-height:38px;
 	font-size:20px;
 }
@@ -72,5 +184,19 @@
 	}
 	.header .nav-hide{
 		display: block;
+	}
+}
+.container-wrap{
+	margin-top:120px;
+	height:100%;
+}
+.container-wrap .container{
+	width: 800px;
+	margin:0 auto;
+}
+@media only screen and (max-width:800px){
+	.container-wrap .container{
+		width: 100%;
+		margin:10px;
 	}
 }
