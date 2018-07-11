@@ -43,6 +43,9 @@ $(function(){
 
 	//点赞
 	$(document).on('click','.like',function(){
+		if($(this).text()=="点赞"){
+			$(this).text("已赞");
+		}
 		$(this).css({
 			color:'red'
 		});
