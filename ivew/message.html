@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>留言-闲言轻博客</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="../layui/css/layui.css">
+	<link rel="stylesheet" href="../layui/css/layui.mobile.css">
+	<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+	<!-- 顶部 -->
+	<div class="header layui-bg-blue">
+		<div class="layui-col-md3">
+			<img src="../img/logo.png" alt="" class="logo">
+			<img src="../img/logo-text.png" alt="" class="logo-text">
+		</div>
+		<form action="" class="layui-col-md4 search-input" style="position:relative">
+			<input type="text" class="search">
+			<i class="layui-icon layui-icon-search search-icon"></i>
+		</form>
+		<ul class="layui-nav layui-bg-blue nav"  align="right">
+		  	<li class="layui-nav-item">
+		  		<a href="index.html">首页</a>
+		  	</li>
+		  	<li class="layui-nav-item layui-this">
+		  		<a href="message.html">留言</a>
+		  	</li>
+		  	<li class="layui-nav-item">
+		    	<a href="about.html">关于</a>
+		  	</li>
+		  	<li class="layui-nav-item">
+		  		<a href="javascript:;">
+		  			<i class="layui-icon layui-icon-username"></i>
+		  		</a>
+		  	</li>
+		</ul>
+		<div class="nav-hide">
+			<div class="more">
+				<i class="layui-icon layui-icon-more"></i>
+			</div>
+			<ul class="layui-nav layui-bg-blue">
+				<li class="layui-nav-item">
+			  		<a href="index.html">首页</a>
+			  	</li>
+			  	<li class="layui-nav-item">
+			  		<a href="message.html layui-this">留言</a>
+			  	</li>
+			  	<li class="layui-nav-item">
+			    	<a href="about.html">关于</a>
+			  	</li>
+			  	<li class="layui-nav-item">
+			  		<a href="javascript:;">
+			  			个人
+			  		</a>
+			  	</li>
+			</ul>
+		</div>
+	</div>
+	<!-- 容器 -->
+	<div class="container-wrap">
+		<!-- 内容 -->
+		<div class="container ">
+			<div class="contar-wrap">
+				<form action="" class="layui-form">
+					<div class="layui-input-block">
+				      	<textarea name="" placeholder="请输入内容" class="layui-textarea"></textarea>
+				    </div>
+				    <div class="layui-input-block" align="right">
+				      	<button class="layui-btn layui-btn-normal">提交</button>
+				    </div>
+				</form>
+				<div class="msg-box">
+					<div class="msg-item">
+						<img src="../img/info-img.png" alt="">
+						<div class="msg-text">
+							<div class="text-title">
+								<p class="name">一片空白</p>
+								<a href="javascript:;" class="praise like">
+									<i class="layui-icon layui-icon-praise"></i>
+									<span>5.8万</span>
+								</a>
+							</div>
+							<p class="text-conter">
+								父爱如山，不善表达。回想十多年前，总记得父亲有个宽厚的肩膀，小小的自己跨坐在上面，越过人山人海去看更广阔的天空，那个时候期望自己有一双翅膀，能够像鸟儿一样飞得高，看得远。虽然父亲有时会和自己开玩笑，但在做错事的时候会受到严厉的训斥。父亲有双粗糙的大手掌。
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="page">
+				<div id="test1"></div>
+			</div>
+		</div>
+	</div>
+	<!-- 底部 -->
+	<div class="footer">
+		<p>
+			<span>© 2018</span>
+			<span>Celery</span>
+		</p>
+		<p>人生就是一场修行</p>
+	</div>
+	
+	<ul class="layui-fixbar">
+		<li class=" layui-icon layui-fixbar-top" lay-type="top" style="background-color: rgb(0, 150, 136);" ></li>
+	</ul>
+
+
+	<script src="https://cdn.bootcss.com/jquery/3.3.0/jquery.min.js"></script>
+	<script src="../layui/layui.all.js"></script>
+	<script src="../js/index.js"></script>
+</body>
+</html>

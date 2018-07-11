@@ -1,3 +1,10 @@
+/*
+@Name:闲言轻博客模块;
+@Time:2018-07-09;
+@Author：欧欧;
+*/
+
+
 /* 清除默认样式 */
 * {
   margin: 0;
@@ -50,8 +57,10 @@ textarea {
 html {
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
+  height:100%;
 }
 body {
+  height:100%;
   width: 100%;
   font-family: "Segoe UI", "Lucida Grande", Helvetica, Arial, "Microsoft YaHei", FreeSans, Arimo, "Droid Sans", "Hiragino Sans GB", "Hiragino Sans GB W3", Simsun, sans-serif;
   font-size: 14px;
@@ -114,14 +123,21 @@ input::-webkit-input-placeholder {
  	display: -ms-flexbox;
  	display: flex;
 }
-/* 首页 */
+.pull-left{
+	float:left;
+}
+.pull-right{
+	float:right;
+}
+
+/* 顶部 */
 .header{
 	position: fixed;
 	top: 0;
 	left: 0;
 	right: 0;
 	z-index: 100;
-	padding:20px 0;
+	padding:15px 0;
 	font-size: 16px;
 	margin: 0 auto;
 }
@@ -166,6 +182,7 @@ input::-webkit-input-placeholder {
 }
 .header .nav-hide ul li{
 	display:block;
+	text-align:center;
 }
 .nav-hide .more .layui-icon-more{
 	position: absolute;
@@ -186,17 +203,153 @@ input::-webkit-input-placeholder {
 		display: block;
 	}
 }
+/* 分页 */
+.page{
+	margin:30px 0;
+	text-align:center;
+}
+/* 底部 */
+.footer{
+	width: 100%;
+	text-align:center;
+	padding:20px 0;
+	color:rgba(255,255,255,.5);
+	font-size:14px;
+	line-height:30px;
+	background:#23262e;
+	margin-top:-100px;
+}
+/* 容器 */
 .container-wrap{
-	margin-top:120px;
-	height:100%;
+	padding:110px 10px;
+	min-height: 100%;
+	overflow-y: auto;
 }
 .container-wrap .container{
-	width: 800px;
+	width: 750px;
 	margin:0 auto;
 }
-@media only screen and (max-width:800px){
+@media only screen and (max-width:750px){
 	.container-wrap .container{
 		width: 100%;
-		margin:10px;
 	}
+}
+/* 首页 */
+.container .notice{
+	background:#fff;
+	padding:18px 30px;
+	line-height:30px;
+	color:#555;
+	font-size:16px;
+}
+.container .notice .layui-icon-speaker{
+	font-size:26px;
+	margin-right:10px;
+}
+.article .item{
+	margin:20px 0;
+}
+.article .item-box{
+	background:#fff;
+	padding:30px;
+}
+.article .item-box h3 a{
+	font-size:20px;
+	line-height:36px;
+}
+.article .item-box h5{
+	color:#a5a5a5;
+	line-height:38px;
+}
+.article .item-box p{
+	line-height:30px;
+	margin-bottom: 15px;
+}
+.article .item-btn a{
+	flex:1;
+	-webkit-item:1;
+	text-align: center;
+	line-height:50px;
+	background:#f9f9f9;
+	border-right: 1px solid #eee;
+}
+.article .item-btn a:last-child{
+	border: none;
+}
+/* 留言 */
+.layui-form textarea{
+	resize:none;
+}
+.layui-form .layui-input-block{
+	margin:20px 0;
+}
+.msg-box {
+	margin:20px 0;
+}
+.msg-box .msg-item{
+	margin-bottom:30px;
+	position: relative;
+}
+.msg-box .msg-item img{
+	border-radius: 10px;
+	width: 68px;
+	height:68px;
+	overflow: hidden;
+	float: left;
+}
+.msg-box .msg-item .msg-text{
+	padding-left:90px;
+	min-height:68px;
+}
+.msg-item .msg-text .text-title{
+	line-height:38px;
+	color:#555;
+	padding-right: 20px;
+	overflow:hidden;
+}
+.msg-text .text-title p{
+	float:left;
+}
+.msg-item .msg-text .text-title .praise{
+	float:right;
+	color:#333;
+}
+.praise .layui-icon-praise{
+	font-size:24px;
+	position: relative;
+	top: 3px;
+}
+
+/* 关于 */
+.about{
+	margin:15px 0;
+	padding:24px;
+	background:#fff;
+}
+.about h3{
+	line-height:40px;
+	font-size:20px;
+}
+.about .about-text p{
+	line-height:30px;
+	padding:10px 0;
+	color:#666;
+}
+.read-footer{
+	line-height:40px;
+	color:#888;
+	margin-top:20px;
+	overflow:hidden;
+}
+.read-footer .layui-icon-praise{
+	font-size:20px;
+	position: relative;
+	top: 5px;
+}
+.article .ping{
+	background:#f2f2f;
+	line-height:40px;
+	font-size:18px;
+	padding:20px;
+	overflow:hidden;
 }
