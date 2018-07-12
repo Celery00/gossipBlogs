@@ -353,3 +353,6 @@ input::-webkit-input-placeholder {
 	padding:20px;
 	overflow:hidden;
 }
+.header .nav .layui-nav-item:nth-child(4){
+	display:none;
+}
