@@ -10,7 +10,6 @@
   margin: 0;
   padding: 0;
   outline: none;
-  cursor:pointer;
 }
 *,
 *:before,
@@ -194,6 +193,9 @@ input::-webkit-input-placeholder {
 @media only screen and (max-width:800px){
 	.header .search-input{
 		display:none;
+	}
+	*{
+		cursor:pointer;
 	}
 }
 @media only screen and (max-width:500px){
