@@ -7,7 +7,7 @@
 
 
 $(function(){
-
+	//处理移动端点击延迟
 	FastClick.attach(document.body);
 	
 	//注意：导航 依赖 element 模块，否则无法进行功能性操作
@@ -53,5 +53,7 @@ $(function(){
 			color:'red'
 		});
 		layer.msg('点赞成功', {time: 2000, icon:6});
-	})
+	});
+
+	
 })

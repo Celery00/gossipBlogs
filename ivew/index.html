@@ -122,5 +122,31 @@
     <script type="text/javascript" src="../js/fastclick.min.js"></script>
 	<script src="../layui/layui.all.js"></script>
 	<script src="../js/index.js"></script>
+	<!-- <script src="https://unpkg.com/axios/dist/axios.min.js"></script> -->
+	<script>
+		$(function () {
+			// console.log(0);
+			// 首页
+			$.ajax({
+				type:"get",
+				url:"http://39.108.82.16/yc/blong/getBlongList",
+				data:{},
+				succces:function(res){
+					console.log('00');
+					console.log(res);
+				},
+				error:function(res){
+					console.log("0000");
+					console.log(res);
+				}
+			})
+
+			// axios.get('https://easy-mock.com/mock/5a2763b68ef919728f8cdb04/example_1506269296641_1512530870292/student')
+			// 	.then(function(response) {
+			// 		console.log(response.data);
+			// 	})
+		})
+		
+	</script>
 </body>
 </html>
