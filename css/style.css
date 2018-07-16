@@ -268,6 +268,9 @@ input::-webkit-input-placeholder {
 	line-height:30px;
 	margin-bottom: 15px;
 }
+.article .item-box img{
+	height:200px;
+}
 .article .item-btn a{
 	flex:1;
 	-webkit-item:1;
@@ -278,6 +281,13 @@ input::-webkit-input-placeholder {
 }
 .article .item-btn a:last-child{
 	border: none;
+}
+.article .ping{
+	background:#f2f2f;
+	line-height:40px;
+	font-size:18px;
+	padding:20px;
+	overflow:hidden;
 }
 /* 留言 */
 .layui-form textarea{
@@ -349,13 +359,7 @@ input::-webkit-input-placeholder {
 	position: relative;
 	top: 5px;
 }
-.article .ping{
-	background:#f2f2f;
-	line-height:40px;
-	font-size:18px;
-	padding:20px;
-	overflow:hidden;
-}
+
 /*
 .header .nav .layui-nav-item:nth-child(4){
 	display:none;
