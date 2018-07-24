@@ -135,22 +135,31 @@
 	                success : function(res){
 	                    // layer.msg(JSON.stringify(data))
 	                    getList=res.data;
-	                    // console.log(getList);
+	                    console.log(getList);
+
+
 			            for (var i = 0; i < getList.length; i++) {
+                            var ds = getList[i]._id;
+                            // alert(ds);
+							var img ='';
+							for(var x = 0;x<getList[i].listImagePath.length;x++){
+							    img += '<img src="'+getList[i].listImagePath[x].imagePath+'" alt="">'+'&nbsp;&nbsp;';
+							}
 			            	var itemBox=$('<div class="item">'+
 									'<div class="item-box">'+
 										'<h3>'+
-											'<a href="details.html">'+getList[i].title+'</a>'+
+											'<a href="details.html?id='+ds+'">'+getList[i].title+'</a>'+
 										'</h3>'+
-										'<h5>发布于：<span>'+getList[i].createTime+'</span></h5>'+
-										'<p>'+getList[i].content+'</p>'+
-										'<img src="'+getList[i].listImagePath[0].imagePath+'" alt="">'+
+										'<h5>发布于：<span>'+getList[i].createTime+'</span></h5>'+'<a href="details.html?id='+ds+'">'+
+										'<p>'+getList[i].content+'</p>'+'</a>'+
+										img+
 									'</div>'+
 									'<div class="item-btn flex">'+
 										'<a href="details.html">评论</a>'+
 										'<a href="javascript:;" class="like">点赞</a>'+				
 									'</div>'+
 								'</div>');
+
 			            	$('.article').prepend(itemBox);
 			            }
 
@@ -159,8 +168,6 @@
 	                	console.log(res);
 	                }
 	            });
-
-
 
 	        });
 		

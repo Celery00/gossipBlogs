@@ -67,11 +67,12 @@
 				<div class="item">
 					<div class="item-box">
 						<h3>
-							<a href="javascript:;">拥有诗意的心态,才能拥有诗意的生活</a>
+							<a href="javascript:;" id="title"></a>
 						</h3>
-						<h5>发布于：刚刚</h5>
-						<p>父爱如山，不善表达。回想十多年前，总记得父亲有个宽厚的肩膀，小小的自己跨坐在上面，越过人山人海去看更广阔的天空，那个时候期望自己有一双翅膀，能够像鸟儿一样飞得高，看得远。虽然父亲有时会和自己开玩笑，但在做错事的时候会受到严厉的训斥。父亲有双粗糙的大手掌，手把手教我走路、骑车，却会在该放手的时刻果断地放开让自己去大胆尝试，那个时候期望快快长大，能够做自己想做的事，不用受父亲的“控制”。父亲是智慧树，他无所不知、无所不晓，虽然你有十万个为什么，但是也难不倒他。父爱如山，不善表达。回想十多年前，总记得父亲有个宽厚的肩膀，小小的自己跨坐在上面，越过人山人海去看更广阔的天空，那个时候期望自己有一双翅膀，能够像鸟儿一样飞得高，看得远。虽然父亲有时会和自己开玩笑，但在做错事的时候会受到严厉的训斥。父亲有双粗糙的大手掌，手把手教我走路、骑车，却会在该放手的时刻果断地放开让自己去大胆尝试，那个时候期望快快长大，能够做自己想做的事，不用受父亲的“控制”。父亲是智慧树，他无所不知、无所不晓，虽然你有十万个为什么，但是也难不倒他。</p>
-						<img src="../img/item.png" alt="">
+						<h5>发布于：<span id="titme"></span></h5>
+						<p id="content"></p>
+						<div id="img"></div>
+
 						<div class="read-footer">
 							<div class="pull-left">
 								<span>阅读 </span>
@@ -143,5 +144,63 @@
     <script type="text/javascript" src="../js/fastclick.min.js"></script>
 	<script src="../layui/layui.all.js"></script>
 	<script src="../js/index.js"></script>
+	<script>
+        layui.use(['form','layer','jquery'],function() {
+
+            var  layer = layui.layer,
+                $ = layui.jquery;
+
+            // var url = 'http://39.108.82.16/yc/blong/getBlongList';
+			var url = 'http://39.108.82.16/yc/blong/getBlong?id='+getUrlParam('id');
+			$.ajax({
+                url : url,
+                type : "get",
+                dataType : "json",
+                success : function(res){
+					$('#title').html(res.data.title);
+					$('#titme').html(res.data.createTime);
+					$('#content').html(res.data.content);
+
+					var img='';
+					for(var i = 0;i<res.data.listImagePath.length;i++){
+                        var ur= res.data.listImagePath[i].imagePath
+                         img += '<img src="'+ur+'" id="displayId">'+'&nbsp;&nbsp;';
+					}
+                    $('#img').append(img);
+
+				},
+                error:function(res){
+                    console.log(res);
+                }
+			});
+
+			$('#displayId').click(function () {
+                layer.msg("ha");
+            });
+
+			//放大
+            function amplificationImg(name, url) {
+                $("#displayImg").attr("src", url);
+                var height = $("#displayImg").height();//拿的图片原来宽高，建议自定义宽高
+                var width = $("#displayImg").width();
+                layer.open({
+                    type: 1,
+                    title: false,
+                    closeBtn: 0,
+                    shadeClose: true,
+                    area: [width + 'px', height + 'px'], //宽高
+                    content: "<img alt=" + name + " title=" + name + " src=" + url + " />"
+                });
+            }
+
+            //获取url传递的值
+            function getUrlParam(name) {
+                var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
+                var r = window.location.search.substr(1).match(reg);  //匹配目标参数
+                if (r != null) return unescape(r[2]); return null; //返回参数值
+            }
+
+		});
+	</script>
 </body>
 </html>
