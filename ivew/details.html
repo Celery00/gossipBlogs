@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>评论-闲言轻博客</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1.0"">
+	<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1.0">
 	<meta http-equiv="cache-control" content="no-cache">
 	<link rel="icon" href="../img/icon1.jpg"> w
 	<link rel="stylesheet" href="../layui/css/layui.css">
@@ -71,7 +71,9 @@
 						</h3>
 						<h5>发布于：<span id="titme"></span></h5>
 						<p id="content"></p>
-						<div id="img"></div>
+						<div id="img">
+							<img alt="" style="display:none" id="displayImg" src="" />
+						</div>
 
 						<div class="read-footer">
 							<div class="pull-left">
@@ -164,8 +166,9 @@
 					var img='';
 					for(var i = 0;i<res.data.listImagePath.length;i++){
                         var ur= res.data.listImagePath[i].imagePath
-                         img += '<img src="'+ur+'" id="displayId">'+'&nbsp;&nbsp;';
+                         img += '<a href="javascript:amplificationImg(\''+res.data.title+'\',\''+ur+'\')"><img src="'+ur+'" id="displayId"></a>'+'&nbsp;&nbsp;';
 					}
+
                     $('#img').append(img);
 
 				},
@@ -174,24 +177,8 @@
                 }
 			});
 
-			$('#displayId').click(function () {
-                layer.msg("ha");
-            });
 
-			//放大
-            function amplificationImg(name, url) {
-                $("#displayImg").attr("src", url);
-                var height = $("#displayImg").height();//拿的图片原来宽高，建议自定义宽高
-                var width = $("#displayImg").width();
-                layer.open({
-                    type: 1,
-                    title: false,
-                    closeBtn: 0,
-                    shadeClose: true,
-                    area: [width + 'px', height + 'px'], //宽高
-                    content: "<img alt=" + name + " title=" + name + " src=" + url + " />"
-                });
-            }
+
 
             //获取url传递的值
             function getUrlParam(name) {
@@ -201,6 +188,19 @@
             }
 
 		});
+
+        function amplificationImg(name, url) {
+            $("#displayImg").attr("src", url);
+            layer.open({
+                type: 1,
+                title: false,
+                closeBtn: 1,
+                shadeClose: true,
+                area:['auto','auto'],
+                // area: [width*5 + 'px', height*5 + 'px'], //宽高
+                content: "<img alt=" + name + " title=" + name + " src=" + url + " />"
+            });
+        }
 	</script>
 </body>
 </html>

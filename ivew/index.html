@@ -143,7 +143,7 @@
                             // alert(ds);
 							var img ='';
 							for(var x = 0;x<getList[i].listImagePath.length;x++){
-							    img += '<img src="'+getList[i].listImagePath[x].imagePath+'" alt="">'+'&nbsp;&nbsp;';
+							    img += '<a href="javascript:amplificationImg(\''+getList[i].title+'\',\''+getList[i].listImagePath[x].imagePath+'\')" ><img src="'+getList[i].listImagePath[x].imagePath+'" alt=""></a>'+'&nbsp;&nbsp;';
 							}
 			            	var itemBox=$('<div class="item">'+
 									'<div class="item-box">'+
@@ -170,7 +170,21 @@
 	            });
 
 	        });
+
+        function amplificationImg(name, url) {
+            $("#displayImg").attr("src", url);
+            layer.open({
+                type: 1,
+                title: false,
+                closeBtn: 1,
+                shadeClose: true,
+                area:['auto','auto'],
+                // area: [width*5 + 'px', height*5 + 'px'], //宽高
+                content: "<img alt=" + name + " title=" + name + " src=" + url + " />"
+            });
+        }
 		
 	</script>
 </body>
+<img alt="" style="display:none" id="displayImg" src="" />
 </html>
