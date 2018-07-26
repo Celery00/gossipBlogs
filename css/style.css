@@ -360,6 +360,10 @@ input::-webkit-input-placeholder {
 	top: 5px;
 }
 
+.input-style{
+	width: 200px;
+}
+
 /*
 .header .nav .layui-nav-item:nth-child(4){
 	display:none;

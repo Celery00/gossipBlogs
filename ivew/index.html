@@ -110,20 +110,6 @@
 	<script src="../js/index.js"></script>
 	<script>
 		$(function () {
-			// 首页
-			// $.ajax({
-			// 	type:"post",
-			// 	url:"http://39.108.82.16/yc/blong/getBlongList",
-			// 	data:{},
-			// 	succces:function(res){
-			// 		console.log('00');
-			// 		console.log(res);
-			// 	},
-			// 	error:function(res){
-			// 		console.log("0000");
-			// 		console.log(res);
-			// 	}
-			// })
 
             var url = 'http://39.108.82.16/yc/blong/getBlongList';
             var getList=[];
@@ -139,11 +125,12 @@
 
 
 			            for (var i = 0; i < getList.length; i++) {
-                            var ds = getList[i]._id;
-                            // alert(ds);
+                            var ds = getList[i].ds;
 							var img ='';
-							for(var x = 0;x<getList[i].listImagePath.length;x++){
-							    img += '<a href="javascript:amplificationImg(\''+getList[i].title+'\',\''+getList[i].listImagePath[x].imagePath+'\')" ><img src="'+getList[i].listImagePath[x].imagePath+'" alt=""></a>'+'&nbsp;&nbsp;';
+							if (getList[i].listImagePath!=null){
+                                for(var x = 0;x<getList[i].listImagePath.length;x++){
+                                    img += '<a href="javascript:amplificationImg(\''+getList[i].title+'\',\''+getList[i].listImagePath[x].imagePath+'\')" ><img src="'+getList[i].listImagePath[x].imagePath+'" alt=""></a>'+'&nbsp;&nbsp;';
+                                }
 							}
 			            	var itemBox=$('<div class="item">'+
 									'<div class="item-box">'+
@@ -151,7 +138,7 @@
 											'<a href="details.html?id='+ds+'">'+getList[i].title+'</a>'+
 										'</h3>'+
 										'<h5>发布于：<span>'+getList[i].createTime+'</span></h5>'+'<a href="details.html?id='+ds+'">'+
-										'<p>'+getList[i].content+'</p>'+'</a>'+
+										'<p>'+getList[i].anAbstract+'</p>'+'</a>'+
 										img+
 									'</div>'+
 									'<div class="item-btn flex">'+
