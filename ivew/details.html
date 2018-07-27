@@ -62,7 +62,7 @@
 	<!-- 容器 -->
 	<div class="container-wrap">
 		<!-- 内容 -->
-		<div class="container">
+		<div class="container" >
 			<div class="article">
 				<div class="item">
 					<div class="item-box">
@@ -167,6 +167,18 @@
                         $('#img').append(img);
                     }
 
+
+                    //设置图片真实大小
+                    var aImgs = $('#content img');//直接用选择器获得img元素
+
+					for(var x=0;x<aImgs.length;x++){
+					    var i=aImgs[x];
+					    $(i).attr('width',$(i).attr('width'));
+					    $(i).attr('height',$(i).attr('height'));
+					}
+
+
+
                     //查询评论
                     queryComment();
 				},
@@ -230,22 +242,51 @@
 
 			});
 
+            //随机显示头像
+            var imgRes;
+            var iconurl = "../json/userface.json"
+            $.ajax({
+                url : iconurl,
+                type : "get",
+                dataType : "json",
+                success : function(data){
+                    imgRes = data;
+                },error:function (e) {
+                }
+            })
 
             /*
             * 查询评论
             * */
             function queryComment() {
                 var id=getUrlParam('id');
-				var url = 'http://39.108.82.16/yc/comments/queryComments';
+				var url = 'http://192.168.30.202:8080/yc/comments/queryComments';
                 $.post(url,{
                     ids : id,
                 },function (res) {
+                    $('.msg-item').remove();
 					if (res.data!=null){
+
+                        // var imgurl='../json/userface.json';
+                        // $.post(url, {
+                        //     method: "get",  //此处是为了演示之用，实际使用中请将此删除，默认用post方式提交
+                        // },function(res, index, upload){
+                        //         imgRes = res;
+                        //         // var num = parseInt(4*Math.random());  //生成0-4的随机数，随机显示一个头像信息
+                        //         // $('#userFace').attr('src',res.data[num].src);
+                        //
+                        // });
+
+
+
 					    var data=[];
+                        var comment_item = '';
 					    data = res.data;
-                        for(var x = 0;x<res.data.length;x++){
-                            var comment_item = '<div class="msg-item">\n' +
-                                '<img src="../img/info-img.png" alt="">\n' +
+                        for(var x = 0;x<data.length;x++){
+                            //随机数
+                            var num = parseInt(4*Math.random());
+                             comment_item += '<div class="msg-item">\n' +
+                                '<img src="'+imgRes.data[num].src+'" alt="">\n' +
                                 '<div class="msg-text">\n' +
                                 '<div class="text-title">\n' +
                                 '<p class="name">'+data[x].touristsNick+'&nbsp;&nbsp;</p>\n'+'<p>'+data[x].createTime+'</p>'+
@@ -260,8 +301,8 @@
                                 '</div>\n' +
                                 '</div>';
 
-                            $('.msg-box').append(comment_item);
-						}
+						};
+                        $('.msg-box').prepend(comment_item);
                     }
 
 
